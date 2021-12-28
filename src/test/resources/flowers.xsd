@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.com/flowers"
+        xmlns:tns="http://www.example.com/flowers"
+        elementFormDefault="qualified">
+
+    <element name="flower" type="tns:Flower" abstract="true"> </element>
+    <element name="annual" type="tns:Annual" substitutionGroup="tns:flower"> </element>
+    <element name="perennial" type="tns:Perennial" substitutionGroup="tns:flower"> </element>
+
+    <element name="flowers">
+        <complexType>
+            <sequence>
+                <element ref="tns:annual" > </element>
+                <element ref="tns:perennial"> </element>
+            </sequence>
+         </complexType>
+    </element>
+
+    <complexType name="Flower" >
+        <sequence>
+            <element name="soil" type="tns:Soil" > </element>
+            <element name="visual" type="tns:VisualParameters" > </element>
+            <element name="growing" type="tns:GrowingTips" > </element>
+            <element type="string" name="plantingTime" > </element>
+        </sequence>
+        <attribute name="id" type="ID" use="required" />
+        <attribute name="name" type="string" use="required"/>
+
+    </complexType>
+
+    <complexType name="Annual">
+        <complexContent>
+             <extension base="tns:Flower">
+                 <all>
+                     <element type="string" name="plantingTime" minOccurs="1" maxOccurs="1"> </element>
+                 </all>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="Perennial">
+        <complexContent>
+          <extension base="tns:Flower">
+              <all>
+                 <element name="evergreen" type="boolean" minOccurs="1" maxOccurs="1"></element>
+                 <element name="rootType" type="tns:RootSystemType" minOccurs="1" maxOccurs="1"></element>
+             </all>
+         </extension>
+        </complexContent>
+    </complexType>
+
+    <simpleType name="Soil">
+        <restriction base="string">
+            <enumeration value="podzolic"/>
+            <enumeration value="land_based"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="RootSystemType">
+        <restriction base="string">
+            <enumeration value="fibrous"/>
+            <enumeration value="bulb"/>
+            <enumeration value="tubers"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="VisualParameters">
+        <sequence>
+            <element type="tns:Color" name="colorFlower"/>
+            <element type="tns:Color" name="colorLeaves"/>
+            <element type="int" name="averageSize"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="GrowingTips">
+        <sequence>
+            <element type="string" name="temperature"/>
+            <element type="string" name="lighting"/>
+            <element type="string" name="watering"/>
+        </sequence>
+    </complexType>
+
+    <simpleType name="Color">
+        <restriction base="string">
+            <enumeration value="white" />
+            <enumeration value="green" />
+            <enumeration value="blue" />
+            <enumeration value="yellow" />
+            <enumeration value="red" />
+            <enumeration value="violet" />
+            <enumeration value="orange" />
+            <enumeration value="pink" />
+        </restriction>
+    </simpleType>
+
+</schema>
