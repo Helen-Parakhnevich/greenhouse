@@ -16,7 +16,7 @@ import java.util.List;
 public class JaxbParser implements Parser {
 
     @Override
-    public List<Flower> parse(String path) throws HandledException {
+    public List<Flower> parse(String path) {
 
         List<Flower> flowerList = new ArrayList<Flower>();
 
@@ -26,7 +26,7 @@ public class JaxbParser implements Parser {
             Greenhouse listFlowers = (Greenhouse) unmarhsaller.unmarshal(new InputSource(new FileReader(path)));
             flowerList = listFlowers.getFlowers();
         } catch (JAXBException e) {
-            new HandledException(path + " JAXB error: " + e.getMessage(), e);
+            new HandledException("JAXB error: " + e.getMessage());
         } catch (IOException e) {
             new HandledException("I/O error: " + e.getMessage());
         }

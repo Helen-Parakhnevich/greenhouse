@@ -2,7 +2,6 @@ package com.epam.greenhouse.entity;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.util.Objects;
 import java.util.UUID;
 
 @XmlRootElement(name = "perennial")

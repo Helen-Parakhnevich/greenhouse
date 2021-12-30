@@ -22,7 +22,6 @@
             <element name="soil" type="tns:Soil" > </element>
             <element name="visual" type="tns:VisualParameters" > </element>
             <element name="growing" type="tns:GrowingTips" > </element>
-            <element type="string" name="plantingTime" > </element>
         </sequence>
         <attribute name="id" type="ID" use="required" />
         <attribute name="name" type="string" use="required"/>
@@ -32,9 +31,9 @@
     <complexType name="Annual">
         <complexContent>
              <extension base="tns:Flower">
-                 <all>
-                     <element type="string" name="plantingTime" minOccurs="1" maxOccurs="1"> </element>
-                 </all>
+                 <sequence>
+                     <element name="plantingTime" type="string"  minOccurs="1" maxOccurs="1"> </element>
+                 </sequence>
             </extension>
         </complexContent>
     </complexType>
@@ -42,10 +41,10 @@
     <complexType name="Perennial">
         <complexContent>
           <extension base="tns:Flower">
-              <all>
-                 <element name="evergreen" type="boolean" minOccurs="1" maxOccurs="1"></element>
-                 <element name="rootType" type="tns:RootSystemType" minOccurs="1" maxOccurs="1"></element>
-             </all>
+              <sequence>
+                 <element name="evergreen" type="boolean"> </element>
+                 <element name="rootType" type="tns:RootSystemType"> </element>
+             </sequence>
          </extension>
         </complexContent>
     </complexType>
@@ -67,17 +66,17 @@
 
     <complexType name="VisualParameters">
         <sequence>
-            <element type="tns:Color" name="colorFlower"/>
-            <element type="tns:Color" name="colorLeaves"/>
-            <element type="int" name="averageSize"/>
+            <element name="colorFlower" type="tns:Color" />
+            <element name="colorLeaves" type="tns:Color" />
+            <element name="averageSize" type="int" />
         </sequence>
     </complexType>
 
     <complexType name="GrowingTips">
         <sequence>
-            <element type="string" name="temperature"/>
-            <element type="string" name="lighting"/>
-            <element type="string" name="watering"/>
+            <element name="temperature" type="string" />
+            <element name="lighting" type="string" />
+            <element name="watering" type="string" />
         </sequence>
     </complexType>
 

@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class XmlValidator {
 
-    public boolean isValidSAX(String fileXML, String fileXSD) throws HandledException {
+    public boolean isValidSax(String fileXML, String fileXSD) throws HandledException {
 
         SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
         try {
@@ -24,10 +24,10 @@ public class XmlValidator {
             validator.validate(new SAXSource(new InputSource(new FileReader(fileXML))));
             return true;
         } catch (SAXException e) {
-            new HandledException(fileXML + " SAX error: " + e.getMessage(), e);
+            new HandledException(e.getMessage());
             return false;
         } catch (IOException e) {
-            new HandledException("I/O error: " + e.getMessage());
+            new HandledException(e.getMessage());
             return false;
         }
     }

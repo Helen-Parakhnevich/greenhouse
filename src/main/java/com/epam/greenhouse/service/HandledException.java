@@ -1,29 +1,13 @@
 package com.epam.greenhouse.service;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import javax.xml.parsers.ParserConfigurationException;
 
-public class HandledException extends Exception {
-
-    private final Logger LOGGER = LogManager.getLogger(HandledException.class);
+public class HandledException extends ParserConfigurationException {
 
     public HandledException() {
     }
 
     public HandledException(String message) {
-        LOGGER.warn(message);
-    }
-
-    public HandledException(String message, Throwable cause) {
-        super(message, cause);
-        LOGGER.error(message);
-    }
-
-    public void warning(String message, Throwable cause) {
-        LOGGER.warn(message);
-    }
-
-    public void fatalError(String message, Throwable cause) {
-        LOGGER.fatal(message);
+        super(message);
     }
 }

@@ -26,7 +26,7 @@ public class SaxParser implements Parser {
             XMLReader reader = saxParser.getXMLReader();
             saxParser.parse(path, contentHandler);
         } catch (ParserConfigurationException |SAXException| IOException e) {
-            throw new HandledException(e.getMessage(), e);
+            throw new HandledException(e.getMessage());
         }
         return contentHandler.getFlowerList();
     }

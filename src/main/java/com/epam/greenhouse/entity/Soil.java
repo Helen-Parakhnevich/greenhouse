@@ -12,7 +12,7 @@ public enum Soil {
     @XmlEnumValue("podzolic")
     PODZOLIC("podzolic"),
     @XmlEnumValue("land_based")
-    LAND_BASED("land_based");
+    LAND_BASED("land-based");
 
     private final String title;
 

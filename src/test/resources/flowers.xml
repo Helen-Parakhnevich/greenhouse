@@ -27,7 +27,7 @@
             <temperature>0-35C</temperature>
             <lighting>600FC</lighting>
             <watering>medium</watering>
-        </growing>-->
+        </growing>
         <evergreen>false</evergreen>
         <rootType>fibrous</rootType>
     </perennial>

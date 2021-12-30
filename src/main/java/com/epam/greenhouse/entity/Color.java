@@ -1,6 +1,5 @@
 package com.epam.greenhouse.entity;
 
-
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
 import java.util.HashMap;

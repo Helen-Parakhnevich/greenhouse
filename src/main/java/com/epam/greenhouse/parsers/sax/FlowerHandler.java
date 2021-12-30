@@ -64,8 +64,6 @@ public class FlowerHandler extends DefaultHandler {
             case EVERGREEN:
                 ((Perennial)flower).setEvergreen(Boolean.parseBoolean(content));
                 break;
-            //default:
-                //currentTag = null;
         }
         currentTag = null;
     }

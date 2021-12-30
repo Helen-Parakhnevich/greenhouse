@@ -1,7 +1,6 @@
 package com.epam.greenhouse.entity;
 
 import javax.xml.bind.annotation.*;
-import java.util.Objects;
 import java.util.UUID;
 
 @XmlRootElement(name = "annual")
