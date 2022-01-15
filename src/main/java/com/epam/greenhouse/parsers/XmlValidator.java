@@ -1,6 +1,9 @@
 package com.epam.greenhouse.parsers;
 
+import com.epam.greenhouse.core.Director;
 import com.epam.greenhouse.service.HandledException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
@@ -15,6 +18,8 @@ import java.io.IOException;
 
 public class XmlValidator {
 
+    private final Logger LOGGER = LogManager.getLogger(Director.class);
+
     public boolean isValidSax(String fileXML, String fileXSD) throws HandledException {
 
         SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
@@ -24,9 +29,11 @@ public class XmlValidator {
             validator.validate(new SAXSource(new InputSource(new FileReader(fileXML))));
             return true;
         } catch (SAXException e) {
+            LOGGER.error(e);
             new HandledException(e.getMessage());
             return false;
         } catch (IOException e) {
+            LOGGER.error(e);
             new HandledException(e.getMessage());
             return false;
         }

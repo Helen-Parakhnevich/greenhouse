@@ -1,14 +1,16 @@
 package com.epam.greenhouse.entity;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import java.util.UUID;
 
-@XmlRootElement(name = "perennial")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Perennial extends Flower {
 
     @XmlElement
     private RootSystemType rootType;
+
     @XmlElement
     private boolean evergreen;
 

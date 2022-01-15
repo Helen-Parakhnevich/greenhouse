@@ -8,6 +8,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.xml.sax.SAXException;
 
+import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,9 +32,9 @@ public class Director {
                 flowerList = parser.parse(xmlFile);
             }
             return flowerList;
-        } catch (SAXException | IOException | ParserConfigurationException e) {
-            LOGGER.error(e);
-            throw new HandledException(e.getMessage());
+        } catch (SAXException | JAXBException| IOException | ParserConfigurationException e) {
+            LOGGER.error(e.getMessage(), e);
+            throw new HandledException(e.getMessage(), e);
         }
     }
 }

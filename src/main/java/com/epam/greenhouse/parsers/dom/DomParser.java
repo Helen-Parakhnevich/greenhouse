@@ -21,9 +21,7 @@ public class DomParser implements Parser {
         try {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-
             Document document = documentBuilder.parse(path);
-
             Element root = document.getDocumentElement();
             flowerCollection = DomAnalyzer.listBuilder(root);
             return flowerCollection;
@@ -31,8 +29,10 @@ public class DomParser implements Parser {
             e.printStackTrace();
             System.out.print("ошибка SAX парсера");
         } catch (ParserConfigurationException e) {
-            e.printStackTrace(); System.out.print("ошибка конфигурации");
-        } catch (IOException e) { e.printStackTrace();
+            e.printStackTrace();
+            System.out.print("ошибка конфигурации");
+        } catch (IOException e) {
+            e.printStackTrace();
             System.out.print("ошибка I/О потока");
         }
         return flowerCollection;

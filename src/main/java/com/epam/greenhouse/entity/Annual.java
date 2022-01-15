@@ -3,8 +3,9 @@ package com.epam.greenhouse.entity;
 import javax.xml.bind.annotation.*;
 import java.util.UUID;
 
-@XmlRootElement(name = "annual")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Annual extends Flower {
+
    @XmlElement
    private Months plantingTime;
 
@@ -26,6 +27,7 @@ public class Annual extends Flower {
 
    @Override
    public boolean equals(Object o) {
+      Integer a;
       if (this == o) {
          return true;
       }

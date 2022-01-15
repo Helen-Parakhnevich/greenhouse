@@ -4,18 +4,17 @@
         xmlns:tns="http://www.example.com/flowers"
         elementFormDefault="qualified">
 
+    <element name="flowers" type="tns:flowers"> </element>
     <element name="flower" type="tns:Flower" abstract="true"> </element>
     <element name="annual" type="tns:Annual" substitutionGroup="tns:flower"> </element>
     <element name="perennial" type="tns:Perennial" substitutionGroup="tns:flower"> </element>
 
-    <element name="flowers">
-        <complexType>
-            <sequence>
-                <element ref="tns:annual" > </element>
-                <element ref="tns:perennial"> </element>
-            </sequence>
-         </complexType>
-    </element>
+    <complexType name = "flowers">
+        <sequence>
+            <element ref="tns:annual" > </element>
+            <element ref="tns:perennial"> </element>
+        </sequence>
+    </complexType>
 
     <complexType name="Flower" >
         <sequence>
@@ -25,7 +24,6 @@
         </sequence>
         <attribute name="id" type="ID" use="required" />
         <attribute name="name" type="string" use="required"/>
-
     </complexType>
 
     <complexType name="Annual">
@@ -52,7 +50,7 @@
     <simpleType name="Soil">
         <restriction base="string">
             <enumeration value="podzolic"/>
-            <enumeration value="land_based"/>
+            <enumeration value="land-based"/>
         </restriction>
     </simpleType>
 

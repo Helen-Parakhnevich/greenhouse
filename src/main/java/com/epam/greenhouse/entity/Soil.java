@@ -11,7 +11,7 @@ import java.util.Map;
 public enum Soil {
     @XmlEnumValue("podzolic")
     PODZOLIC("podzolic"),
-    @XmlEnumValue("land_based")
+    @XmlEnumValue("land-based")
     LAND_BASED("land-based");
 
     private final String title;

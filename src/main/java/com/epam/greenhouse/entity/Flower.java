@@ -3,9 +3,10 @@ package com.epam.greenhouse.entity;
 import javax.xml.bind.annotation.*;
 import java.util.UUID;
 
-@XmlRootElement(name = "flower")
+@XmlAccessorType(XmlAccessType.FIELD)
 @XmlSeeAlso({Annual.class, Perennial.class})
 public class Flower {
+
     @XmlAttribute(required = true)
     private UUID id;
     @XmlAttribute(required = true)

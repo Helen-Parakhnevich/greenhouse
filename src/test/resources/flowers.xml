@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <flowers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://www.example.com/flowers flowers.xsd"
+         xsi:schemaLocation="http://www.example.com/flowers http://www.example.com/flowers/flowers.xsd"
          xmlns="http://www.example.com/flowers">
     <annual id="abaa2a-faa8-4f55-bf51-d812411e571f" name="aster">
         <soil>podzolic</soil>
@@ -17,7 +17,7 @@
         <plantingTime>april</plantingTime>
     </annual>
     <perennial id="fb774a46-3c49-4174-b562-3dbd36671cc3" name="peony">
-        <soil>land_based</soil>
+        <soil>land-based</soil>
         <visual>
             <colorFlower>pink</colorFlower>
             <colorLeaves>green</colorLeaves>

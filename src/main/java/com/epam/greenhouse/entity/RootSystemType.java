@@ -7,8 +7,10 @@ import java.util.Map;
 public enum RootSystemType {
     @XmlEnumValue("fibrous")
     FIBROUS("fibrous"),
+
     @XmlEnumValue("bulb")
     BULB("bulb"),
+
     @XmlEnumValue("tubers")
     TUBERS("tubers");
 
